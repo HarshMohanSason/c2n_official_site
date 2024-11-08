@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C2n Official</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="home_page_CSS/menu_bar.css" rel="stylesheet">
+  <link href="home_page_CSS/sliding_menu_bar.css " rel="stylesheet">
+</head>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<body>
+  <div class="Header"
+    style="display: flex; justify-content: center; background-color: black; height: 52px; color: aliceblue;">
+    <p class="HeaderText">PAN INDIA DELIVERY</p>
+  </div>
+  <script>
+    const messages = ["FREE SHIPPING OVER EVERY ORDER", "HURRY! LIMITED STOCK", "PAN INDIA DELIVERY"];
+    let currentIndex = 0;
+    function changeText() {
+      document.querySelector('.HeaderText').textContent = messages[currentIndex];
+      currentIndex = (currentIndex + 1) % messages.length;
+    }
+    //Changing the text to every 2s for more consistency
+    setInterval(changeText, 2000);
+  </script>
+
+  <!-- C2N Logo with Image -->
+  <div style="display: flex; justify-content: center; height: auto  ; width: auto">
+    <img src="Images/C2NLogoWithName.webp" alt="C2N Logo">
+  </div>
+
+  <!-- Navigation Menu Bar -->
+  <nav class="menu-bar" id="menu-bar">
+    <a href="#" class="menu-item">HOME</a>
+    <a href="#" class="menu-item">UNISEX</a>
+    <a href="#" class="menu-item">NEW ARRIVALS</a>
+    <a href="#" class="menu-item">BEST SELLERS</a>
+    <a href="#" class="menu-item">SHOP ALL</a>
+    <a href="#" class="menu-item">ACCOUNT</a>
+    <a href="#" class="menu-item">INFORMATION</a>
+    <a href="#" class="menu-item">FAQ</a>
+  </nav>
+
+   <!-- Complete Hamburger Menu -->
+  <div class="mobile-menu-container">
+    <div class="category-header">
+      <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mobile-menu-overlay">
+        <div class="mobile-menu">
+          <div class="close-button">×</div>
+          <ul class="mobile-category-list">
+            <li class="mobile-category-item">
+              <a href="https://c2nshop.com/">Home</a>
+            </li>
+
+            <li class="mobile-category-item">
+              <a href="https://c2nshop.com/unisex/">Unisex</a>
+              <span class="arrow">▸</span>
+              <ul class="mobile-submenu">
+                <li><a href="#subcat1-1">Subcategory 1.1</a></li>
+                <li><a href="#subcat1-2">Subcategory 1.2</a></li>
+              </ul>
+            </li>
+
+            <li class="mobile-category-item">
+              <a href="https://c2nshop.com/new-arrivals/">New Arrivals</a>
+            </li>
+            <li class="mobile-category-item">
+              <a href="https://c2nshop.com/shop/">Shop All</a>
+            </li>
+            <li class="mobile-category-item">
+              <a href="https://c2nshop.com/best-sellers/">Best Sellers</a>
+            </li>
+
+            <li class="mobile-category-item">
+              <a href="https://c2nshop.com/information/">Information</a>
+            </li>
+          </ul>
+          <li class="mobile-category-item">
+            <a href="https://c2nshop.com/faq/">FAQ</a>
+          </li>
+          <div class="mobile-menu-button">
+            <a href="https://c2nshop.com/my-account/">Account</a>
+            <div class="menu-brand">C2N-Everyday Wear Brand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- Hamburger Menu Tapped if tapped js  -->
+  <script src="home_page_JS/home_page_menu_slider.js"></script>
+
+  
+  <h2 style="display:flex; justify-content: center;">Latest Collection</h2>
+  <div id="home-page-product-container" class="product-container"
+    style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
+    <script src="home_page_JS/home_page_clothes_tile_create.js"></script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+.menu-brand {
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+}
+.mobile-menu-container {
+    position: relative;
+    z-index: 1000; /* Higher than the rest of the content */
+    isolation: isolate; /* Ensures it doesn't interfere with other elements */
+}
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 22px;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+}
+
+/* Overlay & Menu Styles */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black; /* Solid background color */
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.mobile-menu-overlay.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    overflow-y: auto;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02) 0px,
+        rgba(255, 255, 255, 0.02) 1px,
+        transparent 1px,
+        transparent 5px
+    );
+    background-size: 200% 200%;
+    animation: background-move 10s linear infinite;
+}
+
+@keyframes background-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.mobile-menu-overlay.active .mobile-menu {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Category List and Items */
+.mobile-category-list {
+    list-style: none;
+    padding: 40px 0 0;
+    margin: 0;
+}
+.mobile-category-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 0;
+}
+.mobile-category-item a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.mobile-category-item a:hover {
+    color: #6A5ACD;
+}
+
+.arrow {
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    float: right;
+    transition: transform 0.3s ease;
+}
+.mobile-category-item.active .arrow {
+    transform: rotate(90deg);
+}
+
+.mobile-submenu {
+    list-style: none;
+    padding-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+.mobile-submenu li {
+    padding: 8px 0;
+}
+.mobile-submenu li a {
+    color: #b0b0b0;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.mobile-submenu li a:hover {
+    color: #6A5ACD;
+}
+
+.mobile-category-item.active .mobile-submenu {
+    max-height: 250px;
+}
+
+/* Button Styling */
+.mobile-menu-button {
+    text-align: center;
+    margin-top: 50px;
+}
+.mobile-menu-button a {
+    display: inline-block;
+    padding: 0 24px;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    background-color: black;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.9);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mobile-menu-button a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(128, 128, 128, 1);
+}
+
+/* Hamburger Menu Active State */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Disable Scroll */
+.no-scroll {
+    overflow: hidden;
+}
+
+.disable-interaction {
+    pointer-events: none;
+}
+
+@media (min-width: 1160px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
